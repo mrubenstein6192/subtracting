@@ -54,7 +54,7 @@ $(document).ready(function() {
     var userInputAnswer = $(".numberInput").val();
     if (actualAnswer == userInputAnswer) {
       console.log("Got it!")
-      $("#messages").html("")
+      $("#messages").html(firstNumber + " - (" + secondNumber + ") = " + actualAnswer)
       $("#keepChangeChange").hide()
       $(".buttonsRow").hide()
       $("#absValButtons").html("You Got It!<br>");
