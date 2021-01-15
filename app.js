@@ -6,6 +6,7 @@ $(document).ready(function() {
   $("#messages").html("");
   $("#buttonsRow").html("");
   $("#keepChangeChange").html("");
+  $("#keepChangeChange").hide("")
   $("#kccButton").html("")
   $("#afterKcc").html("")
   $("#absValCheck").html("");
@@ -45,6 +46,7 @@ $button2.addClass("check");
 
 $(".stepOne").on("click", function() {
   $(".buttonsRow").html("")
+  $("#keepChangeChange").show()
   $("#keepChangeChange").html("1. Keep the first number the same <br>2. Change the 'minus' to a PLUS<br>3. Change the second number to its opposite<br><br>")
   $("#tryMessage").html("Try writing out this step before checking if it's correct<br>")
   $("#kccButton").append($button2);
@@ -59,10 +61,10 @@ $(".stepOne").on("click", function() {
     $form.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
 
   if (oppSecNum < 1) {
-  $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + (" + oppSecNum + ") = <br>");
+  $("#tryMessage").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + (" + oppSecNum + ") = <br>");
   }
   else {
-    $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + " + oppSecNum + " = <br>Since both numbers are positive, your final answer will be positive!");
+    $("#tryMessage").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + " + oppSecNum + " = <br>");
   }
 
   if (firstNumber>0 && oppSecNum>0) {
@@ -100,7 +102,7 @@ $(".stepOne").on("click", function() {
 }
 
 else if (firstNumber>0 && oppSecNum<0) {
-$("#keepChangeChange").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.<br>Write this step yourself before you check.<br>")
+$("#tryMessage").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.<br>Write this step yourself before you check.<br>")
 $buttonCheck2 = $("<button type = 'submit'>Check</button>")
 $buttonCheck2.addClass("check2");
 $("#kccButton").html($buttonCheck2);
@@ -200,7 +202,7 @@ $(".check2").on("click", function() {
 }
 
 else if (firstNumber<0 && oppSecNum<0) {
-$("#keepChangeChange").append("<br>Addition Rules! These numbers both have a negative sign.<br>Add the absolute values of both numbers and keep the answer negative.")
+$("#tryMessage").append("<br>Addition Rules! These numbers both have a negative sign.<br>Add the absolute values of both numbers and keep the answer negative.")
 $buttonCheck3 = $("<button type = 'submit'>Check</button>")
 $buttonCheck3.addClass("check3");
 $("#kccButton").html($buttonCheck3);
@@ -241,7 +243,7 @@ $(".check3").on("click", function() {
 }
 
 else if (firstNumber<0 && oppSecNum>0) {
-$("#keepChangeChange").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.");
+$("#tryMessage").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.");
 $buttonCheck2 = $("<button type = 'submit'>Check</button>")
 $buttonCheck2.addClass("check2");
 $("#kccButton").html($buttonCheck2);

@@ -1,0 +1,17 @@
+#keepChangeChange {
+  
+    border-radius: 25px;
+    background-color: white;
+    font-family: "Josefin Sans";
+    border-style: double;
+    padding: 10px;
+    font-size: large;
+    color:black;
+    text-align: center;
+    width: 50%;
+    
+}
+
+body, html {
+  text-align: center;
+}
