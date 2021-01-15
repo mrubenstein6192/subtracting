@@ -12,6 +12,7 @@ $(document).ready(function() {
   $("#absValCheck").html("");
   $("#absValButtons").html("")
   $("#tryMessage").html("")
+  $(".buttonsRow").show()
 
   var numberList = [-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
@@ -33,11 +34,81 @@ $(document).ready(function() {
 
   if (secondNumber < 0) {
     $("#messages").html("Subtract <br>" + firstNumber + " - (" + secondNumber + ") = " )
-  }
-else {
-  $("#messages").html("Subtract <br>" + firstNumber + " - " + secondNumber + " = ");
+    $firstForm = $("<form autocomplete = 'off'></form>")
+    $firstForm.addClass("guessForm");
+    $firstForm.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
+
+    $firstForm.submit(function(e){
+      e.preventDefault();
+      });
+
+  $("#messages").append($firstForm);
+
+  $button10 = $("<button type = 'submit'>Submit</button>")
+  $button10.addClass("firstSubmit");
+  $("#messages").append($button10)
+
+  $(".firstSubmit").on("click", function() { 
+    var actualAnswer = firstNumber - secondNumber;
+    console.log("The answer is " + actualAnswer);
+    var userInputAnswer = $(".numberInput").val();
+    if (actualAnswer == userInputAnswer) {
+      console.log("Got it!")
+      $("#messages").html("")
+      $("#keepChangeChange").hide()
+      $(".buttonsRow").hide()
+      $("#absValButtons").html("You Got It!<br>");
+      $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+          $(".newProblem").on("click", function() {
+            startProgram()
+          })
+    }
+    else {
+      $("#messages").append("<br>Incorrect.  Press the button below for a guide!")
+    }
+  })
 }
 
+else {
+  $("#messages").html("Subtract <br>" + firstNumber + " - " + secondNumber + " = ");
+  $firstForm = $("<form autocomplete = 'off'></form>")
+  $firstForm.addClass("guessForm");
+  $firstForm.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
+
+  $firstForm.submit(function(e){
+    e.preventDefault();
+    });
+
+$("#messages").append($firstForm);
+  $button10 = $("<button type = 'submit'>Submit</button>")
+  $button10.addClass("firstSubmit");
+  $("#messages").append($button10)
+
+  $(".firstSubmit").on("click", function() { 
+    var actualAnswer = firstNumber - secondNumber;
+    console.log("The answer is " + actualAnswer);
+    var userInputAnswer = $(".numberInput").val();
+
+    if (actualAnswer == userInputAnswer) {
+      $("#absValButtons").html("You Got It!<br>");
+      $("#messages").html(firstNumber + " - " + secondNumber + " = " + actualAnswer)
+      $("#keepChangeChange").hide()
+      $(".buttonsRow").hide()
+      console.log("Got it!")
+      $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+          $(".newProblem").on("click", function() {
+            startProgram()
+          })
+    }
+    else {
+      $("#messages").append("<br>Incorrect.  Press the button below for a guide!")
+    }
+})
+}
 $button = $("<button type = 'submit'>Keep Change Change</button>")
 $button.addClass("stepOne")
 $(".buttonsRow").html($button);
@@ -57,10 +128,10 @@ $(".stepOne").on("click", function() {
   console.log(oppSecNum);
     $("#kccButton").html("");
     $("#tryMessage").html("");
-    $form = $("<form autocomplete = 'off'></form>")
-    $form.addClass("guessForm");
-    $form.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
-    $form.submit(function(e){
+    $form10 = $("<form autocomplete = 'off'></form>")
+    $form10.addClass("guessForm");
+    $form10.append("<span class = 'answer'><input class = 'numberInputTen' type = 'numeric' maxlength ='3' size = '3'></input></span>");
+    $form10.submit(function(e){
       e.preventDefault();
   });
 
@@ -73,7 +144,7 @@ $(".stepOne").on("click", function() {
 
   if (firstNumber>0 && oppSecNum>0) {
     console.log("both numbers are positive");
-    $("#afterKcc").append($form);
+    $("#afterKcc").append($form10);
     $(".numberInput").focus();
     $button3 = $("<button type = 'submit'>Submit</button>")
     $button3.addClass("finalAnswer")
@@ -82,7 +153,7 @@ $(".stepOne").on("click", function() {
     $(".finalAnswer").on("click", function() { 
     var answer = firstNumber + oppSecNum
     console.log("The answer is: " + answer);
-    var userAnswer = $(".numberInput").val();
+    var userAnswer = $(".numberInputTen").val();
     console.log("The User Said: " + userAnswer);
 
     if (answer == userAnswer) {
@@ -167,7 +238,7 @@ $(".check2").on("click", function() {
     $form2.addClass("guessFormTwo");
     $form2.append("<span class = 'answer'><input class = 'numberInputTwo' type = 'numeric' maxlength ='3' size = '3'></input></span>")
     $("#afterKcc").html($form2)
-    $form.submit(function(e){
+    $form2.submit(function(e){
       e.preventDefault();
   });
     $(".numberInputTwo").focus();
