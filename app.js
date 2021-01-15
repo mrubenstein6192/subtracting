@@ -24,6 +24,11 @@ $(document).ready(function() {
   var secondNumber = numberList[randomIndexTwo];
   console.log("Second Number is: " + secondNumber);
 
+  if (firstNumber === secondNumber) {
+    startProgram();
+
+  }
+
   if (secondNumber < 0) {
     $("#messages").html("Subtract <br>" + firstNumber + " - (" + secondNumber + ") = " )
   }
@@ -54,10 +59,10 @@ $(".stepOne").on("click", function() {
     $form.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
 
   if (oppSecNum < 1) {
-  $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + (" + oppSecNum + ") = ");
+  $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + (" + oppSecNum + ") = <br>");
   }
   else {
-    $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + " + oppSecNum + " = ");
+    $("#keepChangeChange").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + " + oppSecNum + " = <br>Since both numbers are positive, your final answer will be positive!");
   }
 
   if (firstNumber>0 && oppSecNum>0) {
@@ -78,8 +83,8 @@ $(".stepOne").on("click", function() {
       $button4 = $("<button type = 'submit'>New Problem</button>");
       $button4.addClass("newProblem");
 
-      $("#keepChangeChange").append(answer)
-      $("#afterKcc").html("You got it! Great job! <br>")
+      // $("#keepChangeChange").append(answer)
+      $("#afterKcc").html("You got it! Your final answer is " + answer + "<br>")
       $("#messages").append(answer);
       $("#afterKcc").append($button4)
 
