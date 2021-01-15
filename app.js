@@ -11,6 +11,7 @@ $(document).ready(function() {
   $("#afterKcc").html("")
   $("#absValCheck").html("");
   $("#absValButtons").html("")
+  $("#tryMessage").html("")
 
   var numberList = [-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
@@ -47,7 +48,7 @@ $button2.addClass("check");
 $(".stepOne").on("click", function() {
   $(".buttonsRow").html("")
   $("#keepChangeChange").show()
-  $("#keepChangeChange").html("1. Keep the first number the same <br>2. Change the 'minus' to a PLUS<br>3. Change the second number to its opposite<br><br>")
+  $("#keepChangeChange").html("<u><b>Keep-Change-Change</b></u><br>1. Keep the first number the same <br>2. Change the 'minus' to a PLUS<br>3. Change the second number to its opposite<br>")
   $("#tryMessage").html("Try writing out this step before checking if it's correct<br>")
   $("#kccButton").append($button2);
 
@@ -102,7 +103,7 @@ $(".stepOne").on("click", function() {
 }
 
 else if (firstNumber>0 && oppSecNum<0) {
-$("#tryMessage").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.<br>Write this step yourself before you check.<br>")
+$("#tryMessage").append("<br>Addition Rules! These numbers have <u><b>different</b></u> signs.<br><u><b>Subtract</b></u> the absolute values of both numbers.<br>Write this step yourself before you check.<br>")
 $buttonCheck2 = $("<button type = 'submit'>Check</button>")
 $buttonCheck2.addClass("check2");
 $("#kccButton").html($buttonCheck2);
@@ -243,7 +244,7 @@ $(".check3").on("click", function() {
 }
 
 else if (firstNumber<0 && oppSecNum>0) {
-$("#tryMessage").append("<br>Addition Rules! These numbers have different signs.<br>Subtract the absolute values of both numbers.");
+$("#tryMessage").append("<br>Addition Rules! These numbers have <u><b>different</b></u> signs.<br><u><b>Subtract</b></u> the absolute values of both numbers.");
 $buttonCheck2 = $("<button type = 'submit'>Check</button>")
 $buttonCheck2.addClass("check2");
 $("#kccButton").html($buttonCheck2);
