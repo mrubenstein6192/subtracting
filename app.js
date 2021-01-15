@@ -60,6 +60,9 @@ $(".stepOne").on("click", function() {
     $form = $("<form autocomplete = 'off'></form>")
     $form.addClass("guessForm");
     $form.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
+    $form.submit(function(e){
+      e.preventDefault();
+  });
 
   if (oppSecNum < 1) {
   $("#tryMessage").append("<br>Your expression after Keep Change Change should be:<br>" + firstNumber + " + (" + oppSecNum + ") = <br>");
@@ -71,6 +74,7 @@ $(".stepOne").on("click", function() {
   if (firstNumber>0 && oppSecNum>0) {
     console.log("both numbers are positive");
     $("#afterKcc").append($form);
+    $(".numberInput").focus();
     $button3 = $("<button type = 'submit'>Submit</button>")
     $button3.addClass("finalAnswer")
     $("#afterKcc").append($button3)
@@ -115,7 +119,10 @@ $(".check2").on("click", function() {
     $form2 = $("<form autocomplete = 'off'></form>")
     $form2.addClass("guessFormTwo");
     $form2.append("<span class = 'answer'><input class = 'numberInputTwo' type = 'numeric' maxlength ='3' size = '3'></input></span>")
+    $form2.submit(function(e){
+      e.preventDefault();})
     $("#afterKcc").html($form2)
+    $(".numberInputTwo").focus();
     $button5 = $("<button type = 'submit'>Submit</button>")
     $button5.addClass("answerBeforeFinal")
     $("#afterKcc").append($button5)
@@ -160,6 +167,10 @@ $(".check2").on("click", function() {
     $form2.addClass("guessFormTwo");
     $form2.append("<span class = 'answer'><input class = 'numberInputTwo' type = 'numeric' maxlength ='3' size = '3'></input></span>")
     $("#afterKcc").html($form2)
+    $form.submit(function(e){
+      e.preventDefault();
+  });
+    $(".numberInputTwo").focus();
     $button5 = $("<button type = 'submit'>Submit</button>")
     $button5.addClass("answerBeforeFinal")
     $("#afterKcc").append($button5)
@@ -216,6 +227,11 @@ $(".check3").on("click", function() {
   $form3.addClass("guessFormThree");
   $form3.append("<span class = 'answer'><input class = 'numberInputThree' type = 'numeric' maxlength ='3' size = '3'></input></span>")
   $("#afterKcc").html($form3)
+  $form3.submit(function(e){
+    e.preventDefault();
+});
+
+  $(".numberInputThree").focus();
   $button8 = $("<button type = 'submit'>Submit</button>")
     $button8.addClass("answerBeforeFinalTwo")
     $("#afterKcc").append($button8)
@@ -257,6 +273,10 @@ $(".check2").on("click", function() {
     $form2.addClass("guessFormTwo");
     $form2.append("<span class = 'answer'><input class = 'numberInputTwo' type = 'numeric' maxlength ='3' size = '3'></input></span>")
     $("#afterKcc").html($form2)
+    $form2.submit(function(e){
+      e.preventDefault();
+  });
+    $(".numberInputTwo").focus();
     $button5 = $("<button type = 'submit'>Submit</button>")
     $button5.addClass("answerBeforeFinal")
     $("#afterKcc").append($button5)
@@ -301,6 +321,10 @@ $(".check2").on("click", function() {
     $form2.addClass("guessFormTwo");
     $form2.append("<span class = 'answer'><input class = 'numberInputTwo' type = 'numeric' maxlength ='3' size = '3'></input></span>")
     $("#afterKcc").html($form2)
+    $form2.submit(function(e){
+      e.preventDefault();
+  });
+    $(".numberInputTwo").focus();
     $button5 = $("<button type = 'submit'>Submit</button>")
     $button5.addClass("answerBeforeFinal")
     $("#afterKcc").append($button5)

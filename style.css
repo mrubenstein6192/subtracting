@@ -14,4 +14,37 @@
 
 body, html {
   text-align: center;
+  background-color: rgb(197, 255, 236);
+}
+
+input{
+  text-align: center;
+}
+
+
+button{
+  background-color: lightblue;
+  padding: 1px 3px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: maroon;
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px grey;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: maroon;
+  color: lightblue;
+}
+
+button:active {
+  background-color: maroon;
+  color: skyblue;
+  box-shadow: 5px 5px #666;
+  transform: translateY(4px);
 }
