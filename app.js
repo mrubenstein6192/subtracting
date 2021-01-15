@@ -8,6 +8,8 @@ $(document).ready(function() {
   $("#keepChangeChange").html("");
   $("#kccButton").html("")
   $("#afterKcc").html("")
+  $("#absValCheck").html("");
+  $("#absValButtons").html("")
 
   var numberList = [-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
@@ -38,13 +40,15 @@ $button2.addClass("check");
 
 $(".stepOne").on("click", function() {
   $(".buttonsRow").html("")
-  $("#keepChangeChange").html("1. Keep the first number the same <br>2. Change the 'minus' to a PLUS<br>3. Change the second number to its opposite<br><br>Try writing out this step before checking if it's correct<br>")
+  $("#keepChangeChange").html("1. Keep the first number the same <br>2. Change the 'minus' to a PLUS<br>3. Change the second number to its opposite<br><br>")
+  $("#tryMessage").html("Try writing out this step before checking if it's correct<br>")
   $("#kccButton").append($button2);
 
   $(".check").on("click", function() { 
   var oppSecNum = secondNumber*-1
   console.log(oppSecNum);
     $("#kccButton").html("");
+    $("#tryMessage").html("");
     $form = $("<form autocomplete = 'off'></form>")
     $form.addClass("guessForm");
     $form.append("<span class = 'answer'><input class = 'numberInput' type = 'numeric' maxlength ='3' size = '3'></input></span>");
@@ -76,7 +80,7 @@ $(".stepOne").on("click", function() {
 
       $("#keepChangeChange").append(answer)
       $("#afterKcc").html("You got it! Great job! <br>")
-      $("#messages").append(answerSubAbsVal);
+      $("#messages").append(answer);
       $("#afterKcc").append($button4)
 
       $(".newProblem").on("click", function() {
@@ -122,8 +126,15 @@ $(".check2").on("click", function() {
         $("#absValButtons").html($button6).append($button7)
         $(".optionFirstNum").on("click", function() {
           $("#absValButtons").html("")
-          $("#absValButtons").append("Correct! " + firstNumber + " is positive, so your final answer is " + answerSubAbsVal);
+          $("#absValButtons").append("Correct! " + firstNumber + " is positive, so your final answer is " + answerSubAbsVal + "<br>");
           $("#messages").append(answerSubAbsVal);
+          $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+
+      $(".newProblem").on("click", function() {
+        startProgram()
+      })
         })
         $(".optionSecNum").on("click", function() {
           $("#absValButtons").append(" Sorry, try again!");
@@ -159,8 +170,15 @@ $(".check2").on("click", function() {
         $("#absValButtons").html($button6).append($button7)
         $(".optionSecNum").on("click", function() {
           $("#absValButtons").html("")
-          $("#absValButtons").append("Correct! " + oppSecNum + " is negative, so your final answer is -" + answerSubAbsVal);
+          $("#absValButtons").append("Correct! " + oppSecNum + " is negative, so your final answer is -" + answerSubAbsVal + "<br>");
           $("#messages").append("-" + answerSubAbsVal);
+          $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+
+      $(".newProblem").on("click", function() {
+        startProgram()
+      })
         })
         $(".optionFirstNum").on("click", function() {
           $("#absValButtons").append(" Sorry, try again!");
@@ -199,8 +217,15 @@ $(".check3").on("click", function() {
       if (addingAnswer == userAddingAnswer) {
         $("#afterKcc").html("");
         $("#kccButton").append(addingAnswer);
-        $("#absValCheck").html("Great! Since both numbers you're adding were negative, your final answer will be negative!<br>Your final answer is -" + addingAnswer);
+        $("#absValCheck").html("Great! Since both numbers you're adding were negative, your final answer will be negative!<br>Your final answer is -" + addingAnswer + "<br>");
         $("#messages").append(" -" + addingAnswer)
+        $button4 = $("<button type = 'submit'>New Problem</button>");
+        $button4.addClass("newProblem");
+        $("#absValCheck").append($button4)
+
+      $(".newProblem").on("click", function() {
+        startProgram()
+      })
       }
       else {
         $("#afterKcc").append("<br>Sorry! Try again!")
@@ -242,8 +267,15 @@ $(".check2").on("click", function() {
         $("#absValButtons").html($button6).append($button7)
         $(".optionFirstNum").on("click", function() {
           $("#absValButtons").html("")
-          $("#absValButtons").append("Correct! " + firstNumber + " is negative, so your final answer is -" + answerSubAbsVal);
+          $("#absValButtons").append("Correct! " + firstNumber + " is negative, so your final answer is -" + answerSubAbsVal + "<br>");
           $("#messages").append("-" + answerSubAbsVal);
+          $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+
+      $(".newProblem").on("click", function() {
+        startProgram()
+      })
         })
         $(".optionSecNum").on("click", function() {
           $("#absValButtons").append(" Sorry, try again!");
@@ -279,8 +311,15 @@ $(".check2").on("click", function() {
         $("#absValButtons").html($button6).append($button7)
         $(".optionSecNum").on("click", function() {
           $("#absValButtons").html("")
-          $("#absValButtons").append("Correct! " + oppSecNum + " is positive, so your final answer is " + answerSubAbsVal);
+          $("#absValButtons").append("Correct! " + oppSecNum + " is positive, so your final answer is " + answerSubAbsVal + "<br>");
           $("#messages").append(answerSubAbsVal);
+          $button4 = $("<button type = 'submit'>New Problem</button>");
+          $button4.addClass("newProblem");
+          $("#absValButtons").append($button4)
+
+      $(".newProblem").on("click", function() {
+        startProgram()
+      })
         })
         $(".optionFirstNum").on("click", function() {
           $("#absValButtons").append(" Sorry, try again!");
