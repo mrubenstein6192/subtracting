@@ -178,6 +178,36 @@ $(".check2").on("click", function() {
 
 else if (firstNumber<0 && oppSecNum<0) {
 $("#keepChangeChange").append("<br>Addition Rules! These numbers both have a negative sign.<br>Add the absolute values of both numbers and keep the answer negative.")
+$buttonCheck3 = $("<button type = 'submit'>Check</button>")
+$buttonCheck3.addClass("check3");
+$("#kccButton").html($buttonCheck3);
+$(".check3").on("click", function() {
+  $("#kccButton").html('');
+  var absFirstNum = firstNumber*-1
+  var absOppoSecNum = oppSecNum*-1
+  $("#kccButton").append('<br>' + absFirstNum + " + " + absOppoSecNum + " = ");
+  $form3 = $("<form autocomplete = 'off'></form>")
+  $form3.addClass("guessFormThree");
+  $form3.append("<span class = 'answer'><input class = 'numberInputThree' type = 'numeric' maxlength ='3' size = '3'></input></span>")
+  $("#afterKcc").html($form3)
+  $button8 = $("<button type = 'submit'>Submit</button>")
+    $button8.addClass("answerBeforeFinalTwo")
+    $("#afterKcc").append($button8)
+    $(".answerBeforeFinalTwo").on("click", function() {
+      var addingAnswer = absFirstNum + absOppoSecNum
+      var userAddingAnswer = $(".numberInputThree").val();
+      if (addingAnswer == userAddingAnswer) {
+        $("#afterKcc").html("");
+        $("#kccButton").append(addingAnswer);
+        $("#absValCheck").html("Great! Since both numbers you're adding were negative, your final answer will be negative!<br>Your final answer is -" + addingAnswer);
+        $("#messages").append(" -" + addingAnswer)
+      }
+      else {
+        $("#afterKcc").append("<br>Sorry! Try again!")
+      }
+    })
+
+})
 }
 
 else if (firstNumber<0 && oppSecNum>0) {
