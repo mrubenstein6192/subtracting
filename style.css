@@ -1,3 +1,10 @@
+#titleSpot {
+  font-size: 25px;
+  font-weight: bold;
+}
+#messages {
+  font-size: 20px;
+}
 #keepChangeChange {
   
     border-radius: 25px;
@@ -13,10 +20,21 @@
 }
 
 body, html {
-  text-align: center;
-  background-color: rgb(197, 255, 236);
+  background-image: url("./images/space.jpg");
+
+  /* Full height */
+  height: 750px; 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
 }
 
+#main-container {
+  text-align: center;
+  background-color: rgb(197, 255, 236);
+  height: 100%;
+}
 input{
   text-align: center;
 }
@@ -35,6 +53,8 @@ button{
   border-radius: 5px;
   box-shadow: 2px 2px grey;
   margin-top: 5px;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 button:hover {
